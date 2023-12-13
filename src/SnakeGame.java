@@ -94,6 +94,11 @@ public class SnakeGame extends JPanel implements ActionListener {
     }
     private void checkApple() {
         if ((x[0] == appleX) && (y[0] == appleY)) {
+            for (int i = bodyParts+1; i >= 2; i--) {
+                bodyColors[i] = bodyColors[i-1];
+            }
+            bodyColors[1] = new Color(this.r, this.g, this.b);
+
             bodyParts++;
             applesEaten++;
             newApple();
